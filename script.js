@@ -97,6 +97,7 @@ const getCountryData = function (country) {
 //       console.log(data);
 //       console.log(`you are in ${data.city}, ${data.countryName}`);
 //       getCountryData(data.countryName);
+<<<<<<< HEAD
 
 //       return fetch(`https://restcountries.com/v2/name/${country}`);
 //     })
@@ -228,3 +229,111 @@ const whereAmI = async function (country) {
 };
 whereAmI();
 console.log('first');
+=======
+
+//       return fetch(`https://restcountries.com/v2/name/${country}`);
+//     })
+//     .then(res => {
+//       if (!res.ok) throw new Error(`Country not found(${res.status})`);
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+//       //console.log(data[0]);
+//     })
+//     //如果console出現“Uncaught(...)Error
+//     .catch(err => console.log(`${err.message}`));
+// };
+// whereAmI(52.508, 13.381);
+//btn.addEventListener('click', whereAmI);
+
+//challeage #2
+// const wait = function (seconds) {
+//   return new Promise(resolve => {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+
+// const imgContainer = document.querySelector('.images');
+
+// const createImage = function (imgPath) {
+//   return new Promise((resolve, reject) => {
+//     const img = document.createElement('img');
+//     img.src = imgPath;
+
+//     img.addEventListener('load', () => {
+//       imgContainer.append(img);
+//       resolve(img);
+//     });
+//     img.addEventListener('error', () => {
+//       reject(new Error('Image not found'));
+//     });
+//   });
+// };
+
+// let currentImg;
+// createImage('img/img-1.jpg')
+//   .then(img => {
+//     currentImg = img;
+//     currentImg;
+//     console.log('image 1 loaded');
+//     return wait(2);
+//   })
+//   .then(() => {
+//     currentImg.style.display = 'none';
+//     return createImage('img/img-2.jpg');
+//   })
+//   .then(img => {
+//     currentImg = img;
+//     console.log('image 2 loaded');
+//     return wait(2);
+//   })
+//   .then(() => {
+//     currentImg.style.display = 'none';
+//   })
+//   .catch(err => console.error(err));
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation = getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+// getPosition().then(pos => console.log(pos));
+
+const whereAmI = function () {
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+
+      return fetch(
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+      );
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+      console.log(`you are in ${data.city}, ${data.countryName}`);
+      getCountryData(data.countryName);
+
+      return fetch(`https://restcountries.com/v2/name/${country}`);
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`Country not found(${res.status})`);
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+      //console.log(data[0]);
+    })
+    //如果console出現“Uncaught(...)Error
+    .catch(err => console.log(`${err.message}`));
+};
+btn.addEventListener('click', whereAmI);
+>>>>>>> origin/main
