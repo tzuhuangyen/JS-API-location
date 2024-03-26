@@ -1,4 +1,5 @@
 # JS-API-location
+[https://tzuhuangyen.github.io/JS-API-location/]
 這段程式碼是使用 JavaScript 和 Fetch API 來練習async await建構的國家資訊查詢應用程式。 
 它允許用戶點擊按鈕以獲取國家的詳細信息，包括國旗、首都、人口、語言和貨幣。 
 此外，還有一個根據地理座標查詢國家資訊的功能。
