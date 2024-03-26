@@ -229,7 +229,6 @@ const whereAmI = async function (country) {
 };
 whereAmI();
 console.log('first');
-=======
 
 //       return fetch(`https://restcountries.com/v2/name/${country}`);
 //     })
@@ -336,4 +335,4 @@ const whereAmI = function () {
     .catch(err => console.log(`${err.message}`));
 };
 btn.addEventListener('click', whereAmI);
->>>>>>> origin/main
+
