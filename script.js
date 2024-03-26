@@ -97,7 +97,7 @@ const getCountryData = function (country) {
 //       console.log(data);
 //       console.log(`you are in ${data.city}, ${data.countryName}`);
 //       getCountryData(data.countryName);
-<<<<<<< HEAD
+
 
 //       return fetch(`https://restcountries.com/v2/name/${country}`);
 //     })
